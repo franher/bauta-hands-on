@@ -1,0 +1,132 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Bauta.js Hands-On",
+    "version": "v1"
+  },
+  "paths": {
+    "/hi": {
+      "get": {
+        "operationId": "getHi",
+        "responses": {
+          "200": {
+            "description": "say hi to the world :)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hi": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pokemons": {
+      "get": {
+        "operationId": "getPokemons",
+        "responses": {
+          "200": {
+            "description": "Get a list of pokemons",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["name"],
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pokemons/{id}": {
+      "get": {
+        "operationId": "getPokemon",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the pokemon",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a pokemon by id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pokemons/{id}/nickname": {
+      "post": {
+        "operationId": "postNickname",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of the pokemon",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["nickname"],
+                "properties": {
+                  "nickname": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Create a nickname for pokemon",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

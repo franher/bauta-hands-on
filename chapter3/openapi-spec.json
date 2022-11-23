@@ -1,0 +1,60 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Bauta.js Hands-On",
+    "version": "v1"
+  },
+  "paths": {
+    "/hi": {
+      "get": {
+        "operationId": "getHi",
+        "responses": {
+          "200": {
+            "description": "say hi to the world :)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hi": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pokemons": {
+      "get": {
+        "operationId": "getPokemons",
+        "responses": {
+          "200": {
+            "description": "Get a list of pokemons",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["name"],
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -8,6 +8,15 @@ This repository intends to describe the main features of [bauta.js](https://gith
 - npm version greater or equal than 6.x (recommended 8.x).
 - Local Postgres DB for chapter 6.
 
+## Table of context
+
+1. Getting started!
+2. Hello World! with Bauta.js & Fastify.
+3. Getting a list of pokémon & Fastify validation & serialization.
+4. Consuming [PokéAPI](https://pokeapi.co/) with `bautajs-rest-datasource` & digging into Bauta.js `pipe` and `step` functions.
+5. Using Bauta.js decorators: `parallelMap` & `cache`.
+6. Adding a `POST` endpoint to our Pokémon API & using Fastify hook & using Fastify postgres plugin.
+
 ## Step by step hands-on
 
 ## Chapter 1 - Getting started
@@ -38,7 +47,7 @@ Use `npm install <pkg>` afterwards to install a package and
 save it as a dependency in the package.json file.
 
 Press ^C at any time to quit.
-package name: (oss) bauta-football-api
+package name: (oss) bauta-pokemon-api
 version: (1.0.0) 
 description: 
 entry point: (bauta.js) index.js
@@ -50,7 +59,7 @@ license: (ISC) MIT
 About to write to /Users/fherrero/devel/oss/package.json:
 
 {
-  "name": "bauta-football-api",
+  "name": "bauta-pokemon-api",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -69,7 +78,7 @@ Is this OK? (yes)
 $> npm install fastify @axa/bautajs-core @axa/bautajs-fastify @axa/bautajs-datasource-rest
 ```
 
-## Chapter 2 - Hello World
+## Chapter 2 - Hello World! with Bauta.js & Fastify.
 
 To open our API to the world, we need to run our server with Fastify and register `bautajs-fastify` with a small OpenAPI specification. And by default, with Bauta.js we have a swagger UI explorer working out of the box on `http://localhost:3000/v1/explorer`.
 
@@ -219,7 +228,7 @@ module.exports = resolver(operations => {
 
 You can check the files created and the code of generated for this chapter at the [Chapter 3](./chapter3/) folder.
 
-## Chapter 4 - Calling to PókeAPI
+## Chapter 4 - Consuming PókeAPI & pipe and step functions
 
 So far, our API just return a static list of pokemons. To show the capabilities of `bautajs-rest-datasource`, we are going to integrate [PokéAPI](https://pokeapi.co/) as our datasource. PokéAPI is free and do not need authentication mechanism, so is a very good candidate to be used as part of hands-on and probe of concepts.
 
@@ -418,7 +427,7 @@ We could even access to the request params inside the rest provider to get the p
 
 You can check the files created and the code of generated for this chapter at the [Chapter 4](./chapter4/) folder.
 
-## Chapter 5 - Bauta.js decorators
+## Chapter 5 - Additional Bauta.js decorators
 
 A part of the `pipe` decorator, Bauta.js has a set of valuable decorators that you can use to build your resolvers pipelines. We are going to cover a couple of them now, but you can find information about all of them on [Bauta.js documentation](https://github.com/axa-group/bauta.js#decorators).
 
@@ -674,6 +683,4 @@ You can check the files created and the code of generated for this chapter at th
 
 ## TODOS
 
-- mention API design first and functional programming concept  as Bauta.js mindset
-- grammarly review
 - staticConfig use case

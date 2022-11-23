@@ -8,7 +8,8 @@ fastify.register(bautajsFastify, {
   apiBasePath: 'api',
   prefix: 'v1/',
   apiDefinition,
-  resolversPath: './services/**/*-resolvers.js'
+  resolversPath: './services/**/*-resolvers.js',
+  strictResponseSerialization: false
 });
 
 fastify.setErrorHandler((error, request, reply) => {
